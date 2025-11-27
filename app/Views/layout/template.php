@@ -19,11 +19,10 @@
         <div class="row">
             <div class="col-md-2 sidebar p-0">
                 <div class="d-flex align-items-center justify-content-center py-4 border-bottom border-secondary">
-                    <h4 class="m-0"><i class="bi bi-mortarboard-fill"></i> NOVA-X</h4>
+                    <h4 class="m-0"><i class="bi bi-mortarboard-fill"></i> SIAKAD</h4>
                 </div>
                 
                 <div class="mt-3">
-                    <small class="text-uppercase text-muted px-3">Menu Utama</small>
                     <a href="<?= base_url('dashboard') ?>" class="active">
                         <i class="bi bi-speedometer2 me-2"></i> Dashboard
                     </a>

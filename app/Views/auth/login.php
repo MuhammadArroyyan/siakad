@@ -18,7 +18,7 @@
             <div class="col-md-4">
                 <div class="card p-4">
                     <div class="text-center mb-4">
-                        <h4>SIAKAD <strong>NOVA</strong></h4>
+                        <h4>SIAKAD <strong>UMRAH</strong></h4>
                         <p class="text-muted">Masuk untuk melanjutkan</p>
                     </div>
 
@@ -39,9 +39,6 @@
                             <button type="submit" class="btn btn-primary btn-lg">MASUK</button>
                         </div>
                     </form>
-                    <div class="text-center mt-3">
-                        <small class="text-muted">Gunakan akun demo yang sudah di-seed</small>
-                    </div>
                 </div>
             </div>
         </div>
