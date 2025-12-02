@@ -6,15 +6,39 @@
     <title><?= $title ?? 'SIAKAD Pro' ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+            });
+        }, 3000);
+    </script>
+
     <style>
         .sidebar { min-height: 100vh; background: #2c3e50; color: white; }
-        .sidebar a { color: #bdc3c7; text-decoration: none; padding: 10px 20px; display: block; }
-        .sidebar a:hover, .sidebar a.active { background: #34495e; color: white; border-left: 4px solid #3498db; }
+        .sidebar a { color: #bdc3c7; text-decoration: none; padding: 10px 20px; display: block; transition: 0.3s; }
+        /* Efek Active & Hover: Background lebih gelap + Border kiri biru */
+        .sidebar a:hover, .sidebar a.active { 
+            background: #34495e; 
+            color: white; 
+            border-left: 4px solid #3498db; 
+            padding-left: 16px; /* Kompensasi border agar teks tidak geser */
+        }
         .content { background: #f8f9fa; min-height: 100vh; padding: 20px; }
         .card-icon { font-size: 2.5rem; opacity: 0.5; }
     </style>
 </head>
 <body>
+    
+    <?php 
+        // SERVICE URI: Untuk mendeteksi URL aktif
+        $uri = service('uri');
+        // Ambil segmen pertama URL (contoh: 'mahasiswa' dari localhost/mahasiswa/create)
+        $current = $uri->getSegment(1); 
+    ?>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 sidebar p-0">
@@ -22,26 +46,41 @@
                     <h4 class="m-0"><i class="bi bi-mortarboard-fill"></i> SIAKAD</h4>
                 </div>
                 
-                <div class="mt-3">
-                    <a href="<?= base_url('dashboard') ?>" class="active">
+                <div class="mt-3">                    
+                    <a href="<?= base_url('dashboard') ?>" class="<?= ($current == 'dashboard') ? 'active' : '' ?>">
                         <i class="bi bi-speedometer2 me-2"></i> Dashboard
                     </a>
-
                     <?php if(session()->get('role') == 'admin'): ?>
-                        <a href="<?= base_url('mahasiswa') ?>"><i class="bi bi-people me-2"></i> Mahasiswa</a>
-                        <a href="<?= base_url('dosen') ?>"><i class="bi bi-person-video3 me-2"></i> Dosen</a>
-                        <a href="<?= base_url('matakuliah') ?>"><i class="bi bi-book me-2"></i> Mata Kuliah</a>
-                        <a href="<?= base_url('ruangan') ?>"><i class="bi bi-building me-2"></i> Ruangan</a>
-                        <a href="<?= base_url('jadwal') ?>"><i class="bi bi-calendar-week me-2"></i> Jadwal Kuliah</a>
+                        <a href="<?= base_url('mahasiswa') ?>" class="<?= ($current == 'mahasiswa') ? 'active' : '' ?>">
+                            <i class="bi bi-people me-2"></i> Mahasiswa
+                        </a>
+                        <a href="<?= base_url('dosen') ?>" class="<?= ($current == 'dosen') ? 'active' : '' ?>">
+                            <i class="bi bi-person-video3 me-2"></i> Dosen
+                        </a>
+                        <a href="<?= base_url('matakuliah') ?>" class="<?= ($current == 'matakuliah') ? 'active' : '' ?>">
+                            <i class="bi bi-book me-2"></i> Mata Kuliah
+                        </a>
+                        <a href="<?= base_url('ruangan') ?>" class="<?= ($current == 'ruangan') ? 'active' : '' ?>">
+                            <i class="bi bi-building me-2"></i> Ruangan
+                        </a>
+                        <a href="<?= base_url('jadwal') ?>" class="<?= ($current == 'jadwal') ? 'active' : '' ?>">
+                            <i class="bi bi-calendar-week me-2"></i> Jadwal Kuliah
+                        </a>
                     <?php endif; ?>
 
                     <?php if(session()->get('role') == 'dosen'): ?>
-                        <a href="<?= base_url('dosen/jadwal') ?>"><i class="bi bi-calendar-check me-2"></i> Jadwal Mengajar</a>
+                        <a href="<?= base_url('dosen/jadwal') ?>" class="<?= ($current == 'dosen') ? 'active' : '' ?>">
+                            <i class="bi bi-calendar-check me-2"></i> Jadwal Mengajar
+                        </a>
                     <?php endif; ?>
 
                     <?php if(session()->get('role') == 'mahasiswa'): ?>
-                        <a href="<?= base_url('krs') ?>"><i class="bi bi-card-checklist me-2"></i> Rencana Studi (KRS)</a>
-                        <a href="<?= base_url('khs') ?>"><i class="bi bi-trophy me-2"></i> Hasil Studi (KHS)</a>
+                        <a href="<?= base_url('krs') ?>" class="<?= ($current == 'krs') ? 'active' : '' ?>">
+                            <i class="bi bi-card-checklist me-2"></i> Rencana Studi (KRS)
+                        </a>
+                        <a href="<?= base_url('khs') ?>" class="<?= ($current == 'khs') ? 'active' : '' ?>">
+                            <i class="bi bi-trophy me-2"></i> Hasil Studi (KHS)
+                        </a>
                     <?php endif; ?>
 
                     <div class="border-top border-secondary mt-3 pt-3">
@@ -68,12 +107,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-        window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove(); 
-            });
-        }, 3000);
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
