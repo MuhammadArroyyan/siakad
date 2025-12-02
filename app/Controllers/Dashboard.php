@@ -28,6 +28,7 @@ class Dashboard extends BaseController
             'total_mhs'   => $db->table('mahasiswa')->countAll(),
             'total_dosen' => $db->table('dosen')->countAll(),
             'total_mk'    => $db->table('mata_kuliah')->countAll(),
+            'total_ruangan' => $db->table('ruangan')->countAll(),
             'total_jadwal'=> $db->table('jadwal')->countAll(),
         ];
 
