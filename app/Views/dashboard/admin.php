@@ -71,9 +71,23 @@
                 <h5 class="mb-0 fw-bold text-secondary">Aksi Cepat</h5>
             </div>
             <div class="card-body">
-                <a href="#" class="btn btn-outline-primary me-2"><i class="bi bi-plus-circle"></i> Tambah Mahasiswa</a>
-                <a href="#" class="btn btn-outline-success me-2"><i class="bi bi-plus-circle"></i> Tambah Jadwal</a>
-                <a href="#" class="btn btn-outline-dark"><i class="bi bi-printer"></i> Cetak Laporan</a>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="<?= base_url('mahasiswa/create') ?>" class="btn btn-outline-primary">
+                        <i class="bi bi-person-plus-fill"></i> Tambah Mahasiswa
+                    </a>
+                    <a href="<?= base_url('dosen/create') ?>" class="btn btn-outline-info text-dark">
+                        <i class="bi bi-person-badge-fill"></i> Tambah Dosen
+                    </a>
+                    <a href="<?= base_url('matakuliah') ?>" class="btn btn-outline-warning text-dark">
+                        <i class="bi bi-book-half"></i> Tambah Mata Kuliah
+                    </a>
+                    <a href="<?= base_url('jadwal/create') ?>" class="btn btn-outline-success">
+                        <i class="bi bi-calendar-plus-fill"></i> Tambah Jadwal
+                    </a>
+                    <a href="<?= base_url('dashboard/cetak') ?>" target="_blank" class="btn btn-outline-dark ms-auto">
+                        <i class="bi bi-printer-fill"></i> Cetak Laporan
+                    </a>
+                </div>
             </div>
         </div>
     </div>
