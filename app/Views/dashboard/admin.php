@@ -84,9 +84,6 @@
                     <a href="<?= base_url('jadwal/create') ?>" class="btn btn-outline-success">
                         <i class="bi bi-calendar-plus-fill"></i> Tambah Jadwal
                     </a>
-                    <a href="<?= base_url('dashboard/cetak') ?>" target="_blank" class="btn btn-outline-dark ms-auto">
-                        <i class="bi bi-printer-fill"></i> Cetak Laporan
-                    </a>
                 </div>
             </div>
         </div>
