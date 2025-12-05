@@ -46,11 +46,10 @@
     new Chart(ctx, {
         type: 'line',
         data: {
-            // Data Dummy dulu (Nanti kita ambil dari database real)
             labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4', 'Sem 5'],
             datasets: [{
                 label: 'Indeks Prestasi (IP)',
-                data: [3.2, 3.4, 3.1, 3.6, 3.8],
+                data: [1, 2, 3, 4, 4],
                 borderColor: '#3498db',
                 backgroundColor: 'rgba(52, 152, 219, 0.1)',
                 borderWidth: 3,

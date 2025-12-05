@@ -53,7 +53,7 @@ class Dosen extends BaseController
 
         // B. Buat Akun Login Dosen Otomatis
         $this->userModel->save([
-            'nama_user' => 'dosen' . $this->request->getVar('nidn'), // Username: dosen123
+            'nama_user' => $this->request->getVar('nidn'), // Username: dosen123
             'password'  => password_hash('123456', PASSWORD_DEFAULT),
             'role'      => 'dosen',
             'kode_peran'=> $this->request->getVar('nidn')

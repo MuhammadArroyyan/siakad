@@ -32,7 +32,8 @@
                     <?php if(!isset($dosen)): ?>
                     <div class="alert alert-success bg-opacity-10 border-success text-success">
                         <i class="bi bi-check-circle-fill me-2"></i> 
-                        Akun login akan dibuat otomatis dengan username: <strong>dosen[NIDN]</strong>
+                        Akun login akan dibuat otomatis dengan username: <strong><?= isset($dosen) ? $dosen['nidn'] : 'NIDN' ?></strong>
+                        dan password: <strong>123456</strong>
                     </div>
                     <?php endif; ?>
 

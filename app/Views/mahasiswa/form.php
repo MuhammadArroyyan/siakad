@@ -32,7 +32,8 @@
 
                     <?php if(!isset($mhs)): ?>
                     <div class="alert alert-info">
-                        <i class="bi bi-info-circle-fill"></i> Password default untuk login adalah <strong>123456</strong>
+                        <i class="bi bi-info-circle-fill"></i>
+                        Username dan Password default untuk login adalah : <strong><?= isset($mhs) ? $mhs['nim'] : 'NIM' ?></strong>
                     </div>
                     <?php endif; ?>
 

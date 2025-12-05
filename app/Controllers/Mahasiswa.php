@@ -54,7 +54,7 @@ class Mahasiswa extends BaseController
         // B. OTOMATIS Buat Akun Login
         $this->userModel->save([
             'nama_user' => $this->request->getVar('nim'), // Username = NIM
-            'password'  => password_hash('123456', PASSWORD_DEFAULT), // Default Pass
+            'password'  => password_hash($this->request->getVar('nim'), PASSWORD_DEFAULT), // Password = NIM (hashed)
             'role'      => 'mahasiswa',
             'kode_peran'=> $this->request->getVar('nim')
         ]);

@@ -40,7 +40,7 @@
                             </div>
                         </td>
                         <td>
-                            <span class="badge bg-secondary">dosen<?= $d['nidn'] ?></span>
+                            <span class="badge bg-secondary"><?= $d['nidn'] ?></span>
                         </td>
                         <td class="text-end">
                             <a href="<?= base_url('dosen/edit/' . $d['nidn']) ?>" class="btn btn-warning btn-sm text-white">
